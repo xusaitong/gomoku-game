@@ -12,16 +12,22 @@ class GomokuGame {
         const boardElement = document.getElementById('board');
         boardElement.innerHTML = '';
         
+        const table = document.createElement('table');
+        table.style.borderCollapse = 'collapse';
+        
         for (let i = 0; i < this.boardSize; i++) {
+            const row = document.createElement('tr');
             for (let j = 0; j < this.boardSize; j++) {
-                const cell = document.createElement('div');
+                const cell = document.createElement('td');
                 cell.className = 'cell';
                 cell.dataset.row = i;
                 cell.dataset.col = j;
-                boardElement.appendChild(cell);
+                row.appendChild(cell);
             }
-            boardElement.appendChild(document.createElement('br'));
+            table.appendChild(row);
         }
+        
+        boardElement.appendChild(table);
     }
 
     setupEventListeners() {
