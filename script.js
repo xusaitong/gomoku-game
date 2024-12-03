@@ -48,13 +48,13 @@ class GomokuGame {
         cell.classList.add(this.currentPlayer);
 
         if (this.checkWin(row, col)) {
-            document.getElementById('status').textContent = `游戏结束！${this.currentPlayer === 'black' ? '振河' : '建祥'}获胜！`;
+            document.getElementById('status').textContent = `游戏结束！${this.currentPlayer === 'black' ? '可爱多' : '磨人多'}获胜！`;
             this.gameOver = true;
             return;
         }
 
         this.currentPlayer = this.currentPlayer === 'black' ? 'white' : 'black';
-        document.getElementById('status').textContent = `当前回合: ${this.currentPlayer === 'black' ? '振河' : '建祥'}`;
+        document.getElementById('status').textContent = `当前回合: ${this.currentPlayer === 'black' ? '可爱多' : '磨人多'}`;
     }
 
     checkWin(row, col) {
@@ -96,10 +96,10 @@ class GomokuGame {
         this.board = Array(this.boardSize).fill().map(() => Array(this.boardSize).fill(null));
         this.currentPlayer = 'black';
         this.gameOver = false;
-        document.getElementById('status').textContent = '当前回合: 振河';
+        document.getElementById('status').textContent = '当前回合: 可爱多';
         
-        const cells = document.querySelectorAll('.cell');
-        cells.forEach(cell => {
+        // 清除所有棋子
+        document.querySelectorAll('.cell').forEach(cell => {
             cell.classList.remove('black', 'white');
         });
     }
