@@ -6,13 +6,22 @@
     <title>五子棋游戏</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="pieces.css">
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
 </head>
 <body>
     <div class="container">
         <h1>五子棋</h1>
+        <div id="room-controls" class="game-info">
+            <input type="text" id="room-id" placeholder="输入房间号">
+            <button id="join-room">加入房间</button>
+            <div id="share-link" style="display: none;">
+                分享链接：<span id="room-link"></span>
+                <button id="copy-link">复制</button>
+            </div>
+        </div>
         <div class="game-info">
-            <div id="status">当前回合: 可爱多</div>
-            <button id="restart">重新开始</button>
+            <div id="status">等待加入房间...</div>
+            <button id="restart" style="display: none;">重新开始</button>
         </div>
         <div id="board"></div>
     </div>
