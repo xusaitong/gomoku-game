@@ -48,13 +48,13 @@ class GomokuGame {
         cell.classList.add(this.currentPlayer);
 
         if (this.checkWin(row, col)) {
-            document.getElementById('status').textContent = `游戏结束！${this.currentPlayer === 'black' ? '中国' : '美国'}获胜！`;
+            document.getElementById('status').textContent = `游戏结束！${this.currentPlayer === 'black' ? '振河' : '建祥'}获胜！`;
             this.gameOver = true;
             return;
         }
 
         this.currentPlayer = this.currentPlayer === 'black' ? 'white' : 'black';
-        document.getElementById('status').textContent = `当前回合: ${this.currentPlayer === 'black' ? '中国' : '美国'}`;
+        document.getElementById('status').textContent = `当前回合: ${this.currentPlayer === 'black' ? '振河' : '建祥'}`;
     }
 
     checkWin(row, col) {
@@ -96,7 +96,7 @@ class GomokuGame {
         this.board = Array(this.boardSize).fill().map(() => Array(this.boardSize).fill(null));
         this.currentPlayer = 'black';
         this.gameOver = false;
-        document.getElementById('status').textContent = '当前回合: 中国';
+        document.getElementById('status').textContent = '当前回合: 振河';
         
         const cells = document.querySelectorAll('.cell');
         cells.forEach(cell => {
